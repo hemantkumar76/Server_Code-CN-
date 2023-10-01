@@ -41,6 +41,15 @@ int main()
     addr_size = sizeof(new_addr);
     new_sock = accept(sockfd, (struct sockaddr *)&new_addr, &addr_size);
 
+        // client se message revieve karega into terminal
+    recv(new_sock, buffer, sizeof(buffer), 0);
+    printf("Message from client: %s\n", buffer);
+
+    // Close sockets
+    close(new_sock);
+    close(sockfd);
+
+
 
 
     return 0;
